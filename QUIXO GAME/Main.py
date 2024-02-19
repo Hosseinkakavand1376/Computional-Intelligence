@@ -12,6 +12,7 @@ class RandomPlayer(Player):
         move = random.choice([Move.TOP, Move.BOTTOM, Move.LEFT, Move.RIGHT])
         game.print()
         return from_pos, move
+        
 class Individual:
     def __init__(self, move_sequence=None):
         self.move_sequence = move_sequence or self.generate_random_sequence()
@@ -34,6 +35,7 @@ class Individual:
             else:
                 child_move_sequence.append(parent2.move_sequence[i])
         return Individual(move_sequence=child_move_sequence)
+        
 class ESAgent(Player):
     def __init__(self, player_id, generations: int = 200, population_size: int = 100):
         super().__init__()
